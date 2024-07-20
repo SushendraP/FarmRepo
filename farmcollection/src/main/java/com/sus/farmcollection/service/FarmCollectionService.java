@@ -42,5 +42,12 @@ public interface FarmCollectionService {
      */
     List<Farm> retrieveFarmsForAllSeason();
 
+    /**
+     * This method is responsible to retrieve all Farm information as a text.
+     * 
+     * @return the String text as a report.
+     */
+    String retrieveFarmsForAllSeasonAsaText();
+
 
 }
