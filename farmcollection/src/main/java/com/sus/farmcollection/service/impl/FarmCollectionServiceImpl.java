@@ -22,6 +22,7 @@ public class FarmCollectionServiceImpl implements FarmCollectionService {
      */
     @Override
     public FarmSuccessResponse savePlantedFarmInfomation(Farm farm) {
+        // Just consuming here and returning the success response.
         FarmSuccessResponse response = new FarmSuccessResponse();
         response.setCode(SUCCESS_CODE);
         response.setMessage("Successfully posted Planted farm info");
@@ -34,6 +35,7 @@ public class FarmCollectionServiceImpl implements FarmCollectionService {
      */
     @Override
     public FarmSuccessResponse saveHarvestedFarmInformation(Farm farm) {
+        // Just consuming here and returning the success response.
         FarmSuccessResponse response = new FarmSuccessResponse();
         response.setCode(SUCCESS_CODE);
         response.setMessage("Successfully posted Harvested farm info");
@@ -59,6 +61,22 @@ public class FarmCollectionServiceImpl implements FarmCollectionService {
     @Override
     public List<Farm> retrieveFarmsForAllSeason() {
         return List.of(fetchFarmA(), fetchFarmB());
+    }
+
+    /**
+     * @see FarmCollectionService#retrieveFarmsForAllSeasonAsaText().
+     */
+    @Override
+    public String retrieveFarmsForAllSeasonAsaText() {
+
+        return """
+
+                Season      Farm      crop      Expected(Tons)       Actual(Tons)
+                ----------------------------------------------------------------
+                Spring      Farm-A    Corn      6                       5
+                Spring      Farm-A    Potato    8                       4
+                Summer      Farm-B    Mango     9                       6
+                """;
     }
 
 

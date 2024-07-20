@@ -94,8 +94,39 @@ class FarmCollectionApplicationTests {
         Assertions.assertThat(farmA.getCrops().get(0).getExpectedAmountInTons()).isEqualTo("6");
         Assertions.assertThat(farmA.getCrops().get(0).getActualHarvestedAmountInTons()).isEqualTo("5");
 
+        // can add more assertions as above.
+
     }
-    
+
+    @Test
+    @DisplayName("Testing the all seasons report as a text api")
+    void testGetAllSeasonReportsAsaTextApi() {
+
+        EntityExchangeResult<String> exchangeResult = webTestClient
+                .get()
+                .uri("/api/farm/getAllSeasonReportsAsText")
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody(String.class)
+                .returnResult();
+
+        String result = exchangeResult.getResponseBody();
+
+        String expected = """
+
+                Season      Farm      crop      Expected(Tons)       Actual(Tons)
+                ----------------------------------------------------------------
+                Spring      Farm-A    Corn      6                       5
+                Spring      Farm-A    Potato    8                       4
+                Summer      Farm-B    Mango     9                       6
+                """;
+
+        Assertions.assertThat(result).isEqualTo(expected);
+
+
+    }
+
     @Test
     @DisplayName("Testing the particular season report api")
     void testgetReportForSeasonApi() {

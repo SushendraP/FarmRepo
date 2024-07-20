@@ -49,7 +49,7 @@ public class FarmCollectionController {
     }
 
     /**
-     * This api is responsible for retrieve all season reports of the Farms data in
+     * This api is responsible to retrieve all season reports of the Farms data in
      * the organization.
      * 
      * @return the list of farms data which is present in the organisation.
@@ -57,6 +57,17 @@ public class FarmCollectionController {
     @GetMapping("/getAllSeasonReports")
     public List<Farm> getAllSeasonReports() {
         return farmCollectionService.retrieveFarmsForAllSeason();
+    }
+
+    /**
+     * This api is responsible to retrieve all season reports of the Farms data in
+     * the organization as a text.
+     * 
+     * @return the list of farms data which is present in the organisation.
+     */
+    @GetMapping("/getAllSeasonReportsAsText")
+    public String getAllSeasonReportsAsaText() {
+        return farmCollectionService.retrieveFarmsForAllSeasonAsaText();
     }
 
     /**
