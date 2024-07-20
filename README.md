@@ -9,4 +9,8 @@ This is a Farm-collection microservice which is reponsible to collect Planted an
  . Spring webtestclient integration tests <br>
  <br>
 
-<p> Test coverage achieved using Jaccoco and webtestclient integration test</p>
+<h3>Command to run the Jar</h3>
+ . Java17 is must and build the jar (mvn clean install) <br>
+ . cd target <br>
+ . java -jar farmcollection-0.0.1-SNAPSHOT.jar <br>
+ . Test coverage details--> target/site/jaccoco/
